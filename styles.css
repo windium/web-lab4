@@ -1,0 +1,54 @@
+body {
+  font-family: system-ui, sans-serif;
+  background: #f4f5f7;
+  color: #222;
+  margin: 0;
+  padding: 2rem 1rem;
+}
+
+.dashboard {
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+button {
+  cursor: pointer;
+  padding: 0.4rem 0.8rem;
+  border: 1px solid #888;
+  border-radius: 4px;
+  background: #fff;
+}
+
+button:disabled {
+  cursor: wait;
+  opacity: 0.6;
+}
+
+#statusMessage {
+  min-height: 1.2em;
+  color: #555;
+}
+
+#statusMessage.error {
+  color: #b00020;
+}
+
+.task {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 0.6rem 0.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.task span {
+  flex: 1;
+}
+
+.task.completed span {
+  text-decoration: line-through;
+  color: #888;
+}

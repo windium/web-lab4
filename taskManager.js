@@ -16,3 +16,29 @@ class Task {
     return new Task(this.id, this.title, !this.completed);
   }
 }
+
+// Every method builds a new array and swaps it in; the old array is never
+// changed. Arrays are frozen so an accidental push/splice throws in strict mode.
+class TaskManager {
+  constructor() {
+    this.tasks = Object.freeze([]);
+  }
+
+  setTasks(tasks) {
+    this.tasks = Object.freeze([...tasks]);
+  }
+
+  addTask(task) {
+    this.tasks = Object.freeze([...this.tasks, task]);
+  }
+
+  removeTask(taskId) {
+    this.tasks = Object.freeze(this.tasks.filter((task) => task.id !== taskId));
+  }
+
+  toggleTask(taskId) {
+    this.tasks = Object.freeze(
+      this.tasks.map((task) => (task.id === taskId ? task.toggle() : task))
+    );
+  }
+}
